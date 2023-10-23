@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle"></title>
+
+    <!-- NPM for Canvas Image generating -->
+    <script type="text/javascript" src="canvas/html2canvas.esm.js"></script>
+    <script type="text/javascript" src="canvas/html2canvas.js"></script>
+    <script type="text/javascript" src="canvas/html2canvas.min.js"></script>
+
+
+    <!-- My Style -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+    <nav>
+        <b>ID Creator v1.0.0</b>
+    </nav>
+
+
+    <!-- Body -->
+    <!--  
+    ##############################################################################################################
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    ##############################################################################################################
+    -->
+    <div class="flex_container">
+        <div class="flex_item_left">
+            <h2>Enter Details</h2>
+
+            <div align="center" class="details_contents">
+                <table>
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="#">Business Name </label>
+                        </td>
+                        <td>
+                            <input type="text" id="businessName" placeholder="Enter Business Name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="#">ID Number </label>
+                        </td>
+                        <td>
+                            <input type="text" id="idNumber" placeholder="Enter ID Number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="#">Position </label>
+                        </td>
+                        <td>
+                            <input type="text" id="userPosition" placeholder="Enter Position">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="#">Name </label>
+                        </td>
+                        <td>
+                            <input type="text" id="userName" placeholder="Enter Name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="#">Department </label>
+                        </td>
+                        <td>
+                            <input type="text" id="userDepartment" placeholder="Enter Department">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="#">Barcode Number </label>
+                        </td>
+                        <td>
+                            <input type="text" id="userBarcode" placeholder="Enter Barcode Number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="#">Mobile Number </label>
+                        </td>
+                        <td>
+                            <input type="text" id="mobileNumber" placeholder="Enter Mobile Number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <label for="#">Email </label>
+                        </td>
+                        <td>
+                            <input type="email" id="userEmail" placeholder="Enter Email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="button" id="submitBtn" onclick="submit_btn()" class="submit_btn">SUBMIT</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="note_container">
+                <p>
+                    <b>NOTE:</b> Recomment to use computer like Desktop or Laptop for better experience / result. <br>
+                    You can use phone but you need to enable the Desktop mode.
+                    <br>
+                    <br>
+                    <b>EXAMPLE:</b>
+                    <br>
+                    <a href="img/desktopModePic1.jpg">
+                        <img src="img/desktopModePic1.jpg" alt="Enable Desktop Mode in Phone">
+                    </a>
+                    <a href="img/desktopModePic2.jpg">
+                        <img src="img/desktopModePic2.jpg" alt="Enable Desktop Mode in Phone">
+                    </a>
+                </p>
+            </div>
+        </div>
+        <!-- 
+            #####
+            ##### 
+            #####
+            #####
+            #####
+            #####
+        -->
+        <div align="center" class="flex_item_right">
+            <h2>ID Layout</h2>
+            <br>
+            <div style="overflow-x: auto; border: 1px solid red;">
+                <div id="capture" class="id_container">
+                    <!-- Business Icon -->
+                    <div class="BusinessIcon_left">
+                        <div class="business_img_left">
+                            <input type="file" accept="image/*" name="imageLeft" id="fileLeft" onchange="loadIconLeft(event)" style="display: none;">
+                            <img id="outputIconLeft" />
+                            <label for="fileLeft" id="uploadLabelLeft">Upload<br>Image</label>
+                        </div>
+                    </div>
+                    <div class="BusinessIcon_right">
+                        <div class="business_img_right">
+                            <input type="file" accept="image/*" name="imageRight" id="fileRight" onchange="loadIconRight(event)" style="display: none;">
+                            <img id="outputIconRight" />
+                            <label for="fileRight" id="uploadLabelRight">Upload<br>Image</label>
+                        </div>
+                    </div>
+                    <!-- Business Name -->
+                    <div class="business_name" id="output_businessName">Business Name</div>
+                    <!-- Upload Picture -->
+                    <div class="upload_pic">
+                        <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+                        <img id="output" height="150" width="150" />
+                        <label for="file" id="uploadLabel">Upload<br>Image</label>
+                    </div>
+                    <!-- ID Number -->
+                    <div class="id_number" id="output_idNumber">
+                        234567
+                    </div>
+                    <!-- Position -->
+                    <div class="user_position" id="output_position">
+                        Position
+                    </div>
+                    <!-- Name -->
+                    <div class="user_name" id="output_name">
+                        Name Example
+                    </div>
+                    <!-- Department -->
+                    <div class="user_department" id="output_department">
+                        Department
+                    </div>
+                    <!-- Barcode -->
+                    <div class="barcode_generate">
+                        <svg id="barcode"></svg>
+                    </div>
+                    <!-- Contact Info -->
+                    <div class="contact_info">
+                        <div id="output_email">name@example.com</div>
+                        <div id="output_mobileNumber">12345678899</div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <hr>
+            <br>
+
+
+            <!-- Btn Convert Img -->
+            <button type="button" id="btn_convert" onclick="generateHTMLtoImg()" class="convertToImg_btn">Convert to Image</button>
+
+            <br>
+            <br>
+
+            <!-- Image generate here -->
+            <div>
+                <div id="printImage"></div>
+            </div>
+
+            <br>
+
+            <button type="button" id="download">Download</button>
+
+            <br>
+        </div>
+    </div>
+    <!--  
+    ##############################################################################################################
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    #
+    ##############################################################################################################
+    -->
+
+    <br>
+    <br>
+
+
+
+
+</body>
+<footer>
+    <span id="pageFooter"></span>
+</footer>
+
+<!-- JS Barcode -->
+<script type="text/javascript" src="assets/js/JsBarcode.all.min.js"></script>
+<!-- JavaScript -->
+<script type="text/javascript" src="assets/js/main.js"></script>
+
+
+
+
+
+</html>
