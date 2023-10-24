@@ -249,7 +249,8 @@ function generateHTMLtoImg()
         
         // set ID
         canvas.setAttribute('id', `canvas`)
-        // canvas.setAttribute('height', `800`)
+        // canvas.width = 1000;
+        // canvas.height = 1000;
 
         document.getElementById("printImage").appendChild(canvas)
 
@@ -277,7 +278,7 @@ let canvas = document.getElementById('canvas');
 
 // Convert our canvas to a data URL
 // Image format with quality of 59%
-let canvasUrl = canvas.toDataURL("image/jpg", 1);
+let canvasUrl = canvas.toDataURL("image/jpg", 1.0);
 console.log(canvasUrl);
 
 // Create an anchor, and set the href value to our data URL
