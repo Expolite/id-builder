@@ -250,11 +250,11 @@
 
 <script>
     // Prevent Keys
-    // document.addEventListener("keydown", function (event){
-    //     if(event.keyCode == 123){        // prevent F12
-    //         event.preventDefault();
-    //     }
-    // });
+    document.addEventListener("keydown", function (event){
+        if(event.keyCode == 123){        // prevent F12
+            event.preventDefault();
+        }
+    });
 
     //Prevent Ctrl+S (and Ctrl+W for old browsers and Edge)
     document.onkeydown = function (e) {
