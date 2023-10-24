@@ -14,10 +14,10 @@
     <!-- My Style -->
     <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body onload="gfg_Run()">
+<body>
 
     <nav>
-        <b>ID Creator v1.0.0</b>
+        <b>ID Builder v1.0.2</b>
     </nav>
 
 
@@ -108,15 +108,20 @@
                     <tr>
                         <td colspan="2">
                             <button type="button" id="submitBtn" onclick="submit_btn()" class="submit_btn">SUBMIT</button>
+                            <small class="submit_note">You can press Enter key to submit.</small>
                         </td>
                     </tr>
                 </table>
             </div>
 
+            <br>
+
+            <hr>
+
             <div class="note_container">
                 <p>
                     <b>NOTE:</b> Recomment to use computer like Desktop or Laptop for better experience / result. <br>
-                    You can use phone but you need to enable the Desktop mode.
+                    You can use phone but you need to enable the Desktop mode. <i>`Shortcut key to download [altKey + D]`</i>
                     <br>
                     <br>
                     <b>EXAMPLE:</b>
@@ -141,7 +146,7 @@
         <div align="center" class="flex_item_right">
             <h2>ID Layout</h2>
             <br>
-            <div style="overflow-x: auto; border: 1px solid red;">
+            <div style="overflow-x: auto;">
                 <div id="capture" class="id_container">
                     <!-- Business Icon -->
                     <div class="BusinessIcon_left">
@@ -204,6 +209,10 @@
 
             <br>
             <br>
+
+            <div id="resultLabel">
+                RESULT
+            </div>
 
             <!-- Image generate here -->
             <div>
@@ -274,15 +283,30 @@
     };
 
 
+    // Trigger something with combination key to Download
+    document.onkeydown = function (e) {
+        e = e || window.event;   //Get event
+
+        if (!e.altKey) return;
+
+        var code = e.which || e.keyCode;//Get key code
+
+        switch (code) {
+            case 68:   // Trigger Download button
+                document.getElementById("download").click();
+                break;
+        }
+    };
+
+
     // Disable Right-CLick
     var el_up = document.getElementById("GFG_UP");
     var el_down = document.getElementById("GFG_DOWN");
 
-    function gfg_Run() {
-        document.addEventListener('contextmenu', 
-            event => event.preventDefault()
-        );
-    }
+    document.addEventListener('contextmenu', 
+        event => event.preventDefault()
+    );
+
 </script>
 
 

@@ -2,7 +2,7 @@
 
 
 // Page Title
-document.getElementById("pageTitle").innerHTML = "ID Creator v1.0.0";
+document.getElementById("pageTitle").innerHTML = "ID Builder v1.0.2";
 // Footer Contents
 document.getElementById("pageFooter").innerHTML = "Made by Neru 2023";
 
@@ -241,6 +241,7 @@ function submit_btn() {
 
 
 download.style.display = "none";
+resultLabel.style.display = "none";
 // Generate HTML div to Image =====================================================================
 function generateHTMLtoImg()
 {
@@ -263,6 +264,7 @@ function generateHTMLtoImg()
 
         // Display Download Button
         download.style.display = "block";
+        resultLabel.style.display = "block";
     });
 }
 
